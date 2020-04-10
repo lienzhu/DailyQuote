@@ -2,11 +2,13 @@ package com.example.dailyquote;
 
 import java.io.Serializable;
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Quote implements Serializable {
 
+    //Following code has been converted from JSON to Java through the use of the online conversion tool provided in Week 7.
     @SerializedName("categories")
     @Expose
     private List<Object> categories = null;
@@ -29,7 +31,7 @@ public class Quote implements Serializable {
     @Expose
     private String value;
 
-    public Quote(){
+    public Quote() {
     }
 
     public Quote(List<Object> categories, String createdAt, String iconUrl, String id, String updatedAt, String url, String value) {

@@ -37,25 +37,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: SUCCESS");
 
+                //Retrofit converts the HTTP Chuck Norris API into a Java interface
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("https://api.chucknorris.io/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 Log.d(TAG, "onBuild: SUCCESS");
-
+                //Call from the created QuoteService class can make a HTTP request to the remote Chuck Norris Server.
                 QuoteService service = retrofit.create(QuoteService.class);
                 Call<Quote> quoteCall = service.getQuote();
 
+                //Implementing enqueue method to resolve NetworkOnMainThreadException that would normally occur from using execute().
                 quoteCall.enqueue(new Callback<Quote>() {
                     @Override
                     public void onResponse(Call<Quote> call, Response<Quote> response) {
-                        if(response.isSuccessful()) {
+                        if (response.isSuccessful()) {
                             Log.d(TAG, "onResponse: SUCCESS");
 
                             Quote quotes = response.body();
                             tvQuote.setText(quotes.getValue());
 
-                        }else{
+                        } else {
                             Log.d(TAG, "onResponse: ERROR IS" + response.body());
                         }
                     }
@@ -65,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, "onFailure: ON FAILURE IS:" + t.getLocalizedMessage());
                     }
                 });
-
-
             }
         });
 
