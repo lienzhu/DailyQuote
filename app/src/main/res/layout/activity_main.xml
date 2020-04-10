@@ -18,7 +18,7 @@
         android:gravity="center"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
-        android:text="Hello World!"
+        android:text="Click the button below for some inspiration!"
         android:textColor="@color/quoteColour"
         android:textSize="20sp"
         android:textStyle="bold"
