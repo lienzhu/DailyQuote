@@ -1,16 +1,12 @@
 package com.example.dailyquote;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onClick: SUCCESS");
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("https://api.chucknorris.io")
+                        .baseUrl("https://api.chucknorris.io/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 Log.d(TAG, "onBuild: SUCCESS");
